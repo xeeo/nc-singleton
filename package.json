@@ -1,0 +1,27 @@
+{
+  "name": "nc-singleton",
+  "version": "1.0.0",
+  "description": "a simple singleton module to be used inside your constructor",
+  "main": "src/implementation.js",
+  "scripts": {
+    "test": "mocha test/*.mocha.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xeeo/nc-singleton.git"
+  },
+  "keywords": [
+    "singleton"
+  ],
+  "author": "Raul Geana <geana.raul@icloud.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xeeo/nc-singleton/issues"
+  },
+  "homepage": "https://github.com/xeeo/nc-singleton#readme",
+  "devDependencies": {
+    "hoek": "^2.16.2",
+    "chai": "^3.2.0",
+    "mocha": "^2.3.2"
+  }
+}
