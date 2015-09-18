@@ -1,6 +1,6 @@
 'use strict';
 
-var hoek      = require('hoek');
+var Hoek      = require('hoek');
 var singleton = require('../../');
 
 var defaultOptions = {
@@ -14,11 +14,11 @@ var Plugin = function Plugin() {
 };
 
 Plugin.prototype.init = function init(options) {
-    this.options = hoek.applyToDefaults(this.options, options);
+    this.options = Hoek.applyToDefaults(this.options, options);
 };
 
 Plugin.prototype.getMsg = function getMsg() {
     return this.options.msg;
 };
 
-module.exports = Plugin;
+module.exports = Plugin.bind({});

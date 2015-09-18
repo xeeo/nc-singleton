@@ -1,6 +1,6 @@
 'use strict';
 
-var singleton = function singleton(Constructor) {
+module.exports = function(Constructor) {
     if (Constructor._instance) {
         return Constructor._instance;
     }
@@ -8,6 +8,4 @@ var singleton = function singleton(Constructor) {
         return new Constructor();
     }
     Constructor._instance = this;
-}
-
-module.exports = singleton;
+};
