@@ -11,8 +11,8 @@ Let's assume you are working on a module. You use prototype and you want that al
 
 var singleton = require('nc-singleton');
 
-var Plugin = function Plugin() {
-    return singleton.call(this, Plugin);
+var Cache = function Cache() {
+    return singleton.call(this, Cache);
 };
 
 Cache.prototype.setTime = function() {
@@ -44,7 +44,7 @@ var singleton = require('nc-singleton');
 
 let instance = null;
 
-class Cache{
+class Cache {
       constructor() {
         return singleton.call(this, Cache);
       }
