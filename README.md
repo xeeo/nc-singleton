@@ -5,30 +5,70 @@ A simple singleton module to be used inside your constructor.
 ## Usage
 
 Let's assume you are working on a module. You use prototype and you want that all your new statements return the same instance.
- 
+
 ```javascript
+'use strict';
+
 var singleton = require('nc-singleton');
 
-var defaultOptions = {
-    msg: 'default msg'
-};
-
 var Plugin = function Plugin() {
-    this.options = defaultOptions;
     return singleton.call(this, Plugin);
 };
 
-Plugin.prototype.init = function init(options) {
-    this.options = options || this.options;
+Cache.prototype.setTime = function() {
+    this.time = new Date();
 };
 
-Plugin.prototype.getMsg = function getMsg() {
-    return this.options.msg;
+Cache.prototype.getTime = function() {
+    return this.time;
 };
 
-module.exports = Plugin;
+
+var cache = new Cache()
+cache.setTime();
+console.log(cache.getTime());
+
+setTimeout(function(){
+  var cache = new Cache();
+  console.log(cache.getTime());
+}, 4000);
+
+```
+
+It also works with ES6
+
+```javascript
+'use strict';
+
+var singleton = require('nc-singleton');
+
+let instance = null;
+
+class Cache{
+      constructor() {
+        return singleton.call(this, Cache);
+      }
+
+      setTime() {
+          this.time = new Date();
+      }
+
+      getTime() {
+          return this.time;
+      }
+}
+
+let cache = new Cache()
+cache.setTime();
+console.log(cache.getTime());
+
+setTimeout(function(){
+  let cache = new Cache();
+  console.log(cache.getTime());
+}, 4000);
+
 ```
 
 For testing just npm test :)
 
-That's it. 
+That's it.
